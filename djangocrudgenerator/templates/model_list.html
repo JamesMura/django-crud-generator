@@ -1,41 +1,51 @@
 {{"{"}}# coding: utf8 #{{"}"}}
+{{"{"}}% extends "base.html" %{{"}"}}
 
+{{"{"}}{{"{"}} block content {{"}"}}{{"}"}}
 <a href="{{"{"}}% url {{appname|lower}}:{{modelname|lower}}:create %{{"}"}}" class="model-new {{modelname}}-new">New {{modelname}}</a> 
 {{"{"}}% if object_list %{{"}"}}
-    <table class="model-list-table {{modelname}}-list-table">
-    <thead class="model-list-table-thead {{modelname}}-list-table-thead">
-        <tr class="model-list-table-thead-tr {{modelname}}-list-table-thead-tr">
-            <th class="model-list-table-tr-th-object {{modelname}}-list-table-tr-th-object">{{modelname}} </th> 
-            <th class="model-list-table-tr-th-actions {{modelname}}-list-table-tr-th-actions"> Actions</th> </tr>
+    <table class="table table-bordered table-stripped">
+    <thead  >
+        <tr class=" ">
+            <th >{{modelname}} </th> 
+            <th > Actions</th> </tr>
     </thead>
-    <tbody class="model-list-table-tbody {{modelname}}-list-table-tbody">
+    <tbody class="">
     {{"{"}}% for obj in object_list %{{"}"}}
-        <tr class="model-list-table-tr {{modelname}}-list-table-tr">
-            <td class="model-list-table-tr-td-object {{modelname}}-list-table-tr-td-object">{{"{"}}{{"{"}}obj{{"}"}}{{"}"}}</td>
-            <td class="model-list-table-tr-td-actions {{modelname}}-list-table-tr-td-actions">
-                <a href="{{"{"}}% url {{appname|lower}}:{{modelname|lower}}:update obj.pk %{{"}"}}" class="model-list-table-tr-td-actions-edit {{modelname}}-list-table-tr-td-actions-edit">edit</a>
-                <a href="{{"{"}}% url {{appname|lower}}:{{modelname|lower}}:delete obj.pk %{{"}"}}" class="model-list-table-tr-td-actions-delete {{modelname}}-list-table-tr-td-actions-delete">delete</a>
+        <tr >
+            <td >{{"{"}}{{"{"}}obj{{"}"}}{{"}"}}</td>
+            <td >
+                <a href="{{"{"}}% url {{appname|lower}}:{{modelname|lower}}:update obj.pk %{{"}"}}" class="btn">edit</a>
+                <a href="{{"{"}}% url {{appname|lower}}:{{modelname|lower}}:delete obj.pk %{{"}"}}" class="btn">delete</a>
             </td>
         </tr>
     {{"{"}}% endfor %{{"}"}}
     </tbody>
     </table>
     {{"{"}}% if is_paginated %{{"}"}}
-        <div class="model-list-pagination {{modelname}}-list-pagination">
-            <span class="model-list-page-links">
-                {{"{"}}% if page_obj.has_previous %{{"}"}}
-                    <a href="{{"{"}}% url {{appname|lower}}:{{modelname|lower}}:list page_obj.previous_page_number %{{"}"}}" class="model-list-page-links-previous {{modelname}}-list-page-links-next-previous">Previous</a>
-                {{"{"}}% endif %{{"}"}}
-                <span class="page-current">
+        <div class="pagination">
+             <span class="page-current">
                     Page {{"{"}}{{"{"}} page_obj.number {{"}"}}{{"}"}} of {{"{"}}{{"{"}} page_obj.paginator.num_pages {{"}"}}{{"}"}}.
                 </span>
-                {{"{"}}% if page_obj.has_next %{{"}"}}
-                    <a href="{{"{"}}% url {{appname|lower}}:{{modelname|lower}}:list page_obj.next_page_number %{{"}"}}" class="model-list-page-links-next {{modelname}}-list-page-links-next">Next</a>
+            <ul>
+                {{"{"}}% if page_obj.has_previous %{{"}"}}
+                <li>
+                    <a href="{{"{"}}% url {{appname|lower}}:{{modelname|lower}}:list page_obj.previous_page_number %{{"}"}}" >Previous</a>
+                </li>
+                    
                 {{"{"}}% endif %{{"}"}}
-            </span>
+               
+                {{"{"}}% if page_obj.has_next %{{"}"}}
+                <li>
+                     <a href="{{"{"}}% url {{appname|lower}}:{{modelname|lower}}:list page_obj.next_page_number %{{"}"}}"  >Next</a>
+                </li>
+                   
+                {{"{"}}% endif %{{"}"}}
+            </ul>
         </div>
     {{"{"}}% endif %{{"}"}}
 {{"{"}}% else %{{"}"}}
-    <p id="{{modelname|lower}}_list_not_found_msg" class="model-list-not-found-msg {{modelname|lower}}-list-not-found-msg"> No {{modelname|lower}}s found. </p>
+    <p id="{{modelname|lower}}_list_not_found_msg"  > No {{modelname|lower}}s found. </p>
 {{"{"}}% endif %{{"}"}}
 
+{{"{"}}{{"{"}} endblock content {{"}"}}{{"}"}}
