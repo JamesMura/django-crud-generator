@@ -1,7 +1,7 @@
 {{"{"}}# coding: utf8 #{{"}"}}
 {{"{"}}% extends "base.html" %{{"}"}}
 
-{{"{"}}{{"{"}} block content {{"}"}}{{"}"}}
+{{"{"}}% block content %{{"}"}}
 <a href="{{"{"}}% url {{appname|lower}}:{{modelname|lower}}:create %{{"}"}}" class="model-new {{modelname}}-new">New {{modelname}}</a> 
 {{"{"}}% if object_list %{{"}"}}
     <table class="table table-bordered table-stripped">
@@ -48,4 +48,4 @@
     <p id="{{modelname|lower}}_list_not_found_msg"  > No {{modelname|lower}}s found. </p>
 {{"{"}}% endif %{{"}"}}
 
-{{"{"}}{{"{"}} endblock content {{"}"}}{{"}"}}
+{{"{"}}% block content %{{"}"}}

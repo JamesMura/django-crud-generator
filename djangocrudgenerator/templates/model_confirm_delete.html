@@ -1,7 +1,7 @@
 {{"{"}}# coding: utf8 #{{"}"}}
 {{"{"}}% extends "base.html" %{{"}"}}
 
-{{"{"}}{{"{"}} block content {{"}"}}{{"}"}}
+{{"{"}}% block content %{{"}"}}
 
 <div id="{{modelname}}_confirm_delete_header" class="model-confirm-delete-header {{modelname}}-confirm-delete-header">
 Are you sure to delete "{{"{"}}{{"{"}} object {{"}"}}{{"}"}}"?
@@ -14,4 +14,4 @@ Are you sure to delete "{{"{"}}{{"{"}} object {{"}"}}{{"}"}}"?
         <a href="{{"{"}}% url {{appname|lower}}:{{modelname|lower}}:list page=1 %{{"}"}}" class="model-confirm-delete-form-cancel {{modelname}}-confirm-delete-form-cancel">Cancel </a>
     </div>
 </form>
-{{"{"}}{{"{"}} endblock content {{"}"}}{{"}"}}
+{{"{"}}% block content %{{"}"}}
