@@ -13,7 +13,7 @@ Create new {{modelname}}
 <form action="." method="post" name="{{modelname}}_form" class="">
     {{"{"}}% csrf_token %{{"}"}}
     
-            {{"{"}}{{"{"}}form.as_bootstrap{{"}"}}{{"}"}}
+            {{"{"}}{{"{"}}form|as_bootstrap{{"}"}}{{"}"}}
             
             <div class="actions">
         <button type="submit" class="btn primary">Submit</button>
